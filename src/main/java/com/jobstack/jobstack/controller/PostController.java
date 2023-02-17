@@ -1,5 +1,6 @@
 package com.jobstack.jobstack.controller;
 
+import com.jobstack.jobstack.model.Application;
 import com.jobstack.jobstack.repos.PostRepository;
 import com.jobstack.jobstack.model.Post;
 import com.jobstack.jobstack.repos.SearchRepository;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class PostController {
 
     @Autowired
@@ -25,7 +27,7 @@ public class PostController {
         response.sendRedirect("/swagger-ui.html");
     }
 
-    @GetMapping("/posts")                       //Route with a get request
+    @GetMapping("/allPosts")                       //Route with a get request
     private List<Post> getAllPosts()
     {
         return repo.findAll();
