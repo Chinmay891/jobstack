@@ -4,6 +4,7 @@ import com.jobstack.jobstack.model.Application;
 import com.jobstack.jobstack.repos.ApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
@@ -24,7 +25,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/application")
-    private Application addApplication(Application application)
+    private Application addApplication(@RequestBody Application application)
     {
         return appRepo.save(application);
     }
